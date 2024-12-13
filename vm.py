@@ -52,7 +52,7 @@ def ret(opr):
 	reg['sp']=reg['sp']-1;
 
 def out(opr):
-	print((reg[opr[0]]));
+	print(reg[opr[0]]);
 	reg['pc']=reg['pc']+1;
 
 def push(opr):
@@ -79,7 +79,7 @@ def halt(opr):
 	reg['pc']=reg['pc']+1;
 
 
-f=open('ass-3.asm','r');
+f=open('prog.asm','r');
 
 def runm():
 	while reg['halt']==False:
