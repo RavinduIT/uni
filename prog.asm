@@ -23,7 +23,7 @@
 12 halt
 
 
-#scheduler
+# scheduler
 20 push a
 21 push b
 22 push c
@@ -43,20 +43,20 @@
 33 store 72 acc
 34 movv a 70
 35 add a acc
-36 
+36 loadr sp acc
 37 pop acc
 38 pop d
 39 pop c
 40 pop b
 41 pop a
-42 movv ivec 
+42 movv ivec 20
 43 movv timer 5
 44 movv int 1
 45 ret 
 46 halt
 
 
-#process 0
+# process 0
 80 movv a 20
 81 movv b 1
 82 sub a b
@@ -65,7 +65,7 @@
 85 jnz 82 a
 86 halt
 
-#process 1
+# process 1
 90 movv a 10000
 91 movv b 1
 92 sub a b
@@ -73,4 +73,5 @@
 94 out acc
 95 jnz 92 a
 96 halt
+
 
