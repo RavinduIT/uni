@@ -5,32 +5,39 @@
 #include <sys/wait.h>
 
 int main() {
-    pid_t child1, child2;
+    pid_t pid1, pid2;
 
-    child1 = fork();
-    
-    if (child1 < 0) {
+    printf("PARENT (PID: %d)\n", getpid());
+
+    pid1 = fork();
+
+    if (pid1 < 0) {
         perror("Fork failed");
         exit(1);
-    } else if (child1 == 0) {
-        printf("CHILD 1\n");
-        exit(0);
-    } else {
-        child2 = fork();
+    }
 
-        if (child2 < 0) {
-            perror("Fork failed");
-            exit(1);
-        } else if (child2 == 0) {
-            printf("CHILD 2\n");
-            exit(0);
-        } else {
-            printf("PARENT\n");
-        }
+    if (pid1 == 0) {
+        printf("CHILD 1 (PID: %d, PPID: %d)\n", getpid(), getppid());
+        sleep(10); 
+        exit(0);
+    }
+
+    pid2 = fork();
+
+    if (pid2 < 0) {
+        perror("Fork failed");
+        exit(1);
+    }
+
+    if (pid2 == 0) {
+        printf("CHILD 2 (PID: %d, PPID: %d)\n", getpid(), getppid());
+        sleep(10); 
+        exit(0);
     }
 
     wait(NULL);
     wait(NULL);
 
+    printf("PARENT EXITING (PID: %d)\n", getpid());
     return 0;
 }
