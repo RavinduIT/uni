@@ -1,0 +1,5 @@
+Conclusion
+The multilevel queue scheduling algorithm effectively manages processes based on their priority and scheduling technique. Each scheduling approach has its strengths and weaknesses, making them suitable for various scenarios. While SJF provides optimal turnaround time, it can lead to starvation. Round Robin offers fairness but may increase waiting times for longer processes. FIFO is straightforward but may not be efficient for varying burst times.
+
+Limitations
+The program does not implement preemption or dynamic priority adjustment. This can affect the performance of real-time systems. Additionally, the SJF algorithm assumes knowledge of burst times in advance. This is not always feasible in practical scenarios.

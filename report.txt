@@ -1,0 +1,36 @@
+Implementation Explanation
+
+The program implements a multilevel queue scheduling algorithm with four queues, each assigned a different scheduling algorithm:
+
+Queue 0 (Round Robin): Each process receives a fixed time quantum (20 seconds) in a cyclic manner.
+Queue 1 (Shortest Job First): Processes are sorted by burst time, and the shortest jobs are executed first.
+Queue 2 (Shortest Job First): Similar to Queue 1, it also employs SJF for lower-priority processes.
+Queue 3 (First In First Out): Processes are executed in the order they arrive without preemption.
+The program takes user input for the number of processes, their IDs, priorities, and burst times. It then processes the queues according to the specified algorithms and prints the waiting time and turnaround time for each process.
+
+Performance Analysis
+
+Waiting Time
+Round Robin: May lead to higher waiting times, especially for processes with longer burst times.
+Shortest Job First (SJF): Minimizes waiting time as shorter jobs are executed first.
+First In First Out (FIFO): Can lead to increased waiting times for longer jobs since they block shorter jobs.
+
+Turnaround Time
+Round Robin: Generally higher turnaround times due to context switching.
+SJF: Produces the lowest average turnaround time, as shorter processes are completed sooner.
+FIFO: Similar to waiting time, longer processes can significantly increase average turnaround time.
+
+
+Pros and Cons of Each Algorithm
+
+Round Robin (RR)
+Pros: Fair allocation of CPU time, good for time-sharing systems.
+Cons: Higher waiting time for longer processes; context switching overhead.
+
+Shortest Job First (SJF)
+Pros: Minimizes average waiting and turnaround times; efficient for batch processes.
+Cons: Starvation of longer processes; requires knowledge of future burst times.
+
+First In First Out (FIFO)
+Pros: Simple and easy to implement; fair in terms of order of arrival.
+Cons: Can lead to high waiting times for longer jobs; not suitable for time-sharing.

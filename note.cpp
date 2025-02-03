@@ -69,5 +69,16 @@ int main() {
         cout << i << "\n";
     }
 
+    // Vector (dynamic array)
+    vector<int> myVector = {10, 20, 30, 40, 50};
+    myVector.push_back(60);
+    for (int i : myVector) {
+        cout << i << "\n";
+    }
+    // read more abt vector here: https://www.geeksforgeeks.org/vector-in-cpp-stl/
+
+    
+
+
     return 0;
 }
