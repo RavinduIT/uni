@@ -45,7 +45,27 @@ div {
     font-size: 18px;
     opacity: 0.6;
     margin-left: 5cm;
-    border-style: solid;
-    margin-left: 100px;
-    margin-right: 600px;
+    border: 2px solid #4ea099;
+    width: fit-content;
+    padding-right: 10px;
+}
+
+.pad {
+    padding-top: 200px;
+}
+
+.link {
+    color: bisque; /* Initial link color */
+    font-family: monospace; /* Monospace font */
+    text-shadow: 2px 2px 4px #000000; /* Shadow effect */
+    font-size: 25px; /* Font size */
+    text-decoration: none; /* Remove underline */
+}
+
+.link:hover {
+    color: #4ea07a; /* Color when hovering over the link */
+}
+
+.link:visited {
+    color: #a07a4e; /* Color after the link has been clicked */
 }
