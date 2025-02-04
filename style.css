@@ -26,6 +26,7 @@ h1 {
     color: #ebebeb;
     font-family:monospace;
     font-size: 16px;
+    opacity: 0.6;
 }
 
 div {
@@ -35,4 +36,16 @@ div {
     text-shadow: 2px 2px 4px #000000;
     font-size: 18px;
     opacity: 0.6;
+}
+
+.ex {
+    color: #ebebeb;
+    font-family:monospace;
+    text-shadow: 2px 2px 4px #000000;
+    font-size: 18px;
+    opacity: 0.6;
+    margin-left: 5cm;
+    border-style: solid;
+    margin-left: 100px;
+    margin-right: 600px;
 }
