@@ -25,6 +25,14 @@ h1 {
 .useclass {
     color: #ebebeb;
     font-family:monospace;
+    font-size: 16px;
+}
+
+div {
+    text-align: center;
+    color: #ebebeb;
+    font-family:monospace;
     text-shadow: 2px 2px 4px #000000;
     font-size: 18px;
+    opacity: 0.6;
 }
