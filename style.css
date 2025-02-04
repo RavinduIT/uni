@@ -14,17 +14,19 @@ h1 {
     opacity: 0.5;
     text-shadow: 2px 2px 4px #000000;
 }
+
 #useid {
     color: #4ea07a;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     opacity: 0.7;
     text-shadow: 2px 2px 4px #000000;
     font-size: 30px;
-    
+
 }
+
 .useclass {
     color: #ebebeb;
-    font-family:monospace;
+    font-family: monospace;
     font-size: 16px;
     opacity: 0.6;
 }
@@ -32,7 +34,7 @@ h1 {
 div {
     text-align: center;
     color: #ebebeb;
-    font-family:monospace;
+    font-family: monospace;
     text-shadow: 2px 2px 4px #000000;
     font-size: 18px;
     opacity: 0.6;
@@ -40,7 +42,7 @@ div {
 
 .ex {
     color: #ebebeb;
-    font-family:monospace;
+    font-family: monospace;
     text-shadow: 2px 2px 4px #000000;
     font-size: 18px;
     opacity: 0.6;
@@ -55,17 +57,43 @@ div {
 }
 
 .link {
-    color: bisque; /* Initial link color */
-    font-family: monospace; /* Monospace font */
-    text-shadow: 2px 2px 4px #000000; /* Shadow effect */
-    font-size: 25px; /* Font size */
-    text-decoration: none; /* Remove underline */
+    color: bisque;
+    /* Initial link color */
+    font-family: monospace;
+    /* Monospace font */
+    text-shadow: 2px 2px 4px #000000;
+    /* Shadow effect */
+    font-size: 25px;
+    /* Font size */
+    text-decoration: none;
+    /* Remove underline */
 }
 
 .link:hover {
-    color: #4ea07a; /* Color when hovering over the link */
+    color: #4ea07a;
+    /* Color when hovering over the link */
 }
 
 .link:visited {
-    color: #a07a4e; /* Color after the link has been clicked */
+    color: #a07a4e;
+    /* Color after the link has been clicked */
+}
+
+.link:active {
+    color: #7a4ea0;
+    /* Color when the link is clicked */
+}
+
+.link:focus {
+    color: #4ea07a;
+    /* Color when the link is focused */
+}
+
+.img {
+    width: 40%;
+    height: 40%;
+    opacity: 0.5;
+    top: 50px;
+    left: 100px;
+    position:relative;
 }
