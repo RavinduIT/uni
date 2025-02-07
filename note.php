@@ -7,14 +7,16 @@
 </head>
 <body>
     
-    <form method="getinput">
+    <form method="get">
         <input type="text" name="name">
         <input type="submit" value="Submit">
     </form>
 
     <?php
-        $var = $_GET['name'];
-        echo "Your name is ".name.".";
+        if(isset($_GET['name'])){
+            $var = $_GET['name'];
+            echo "Your name is ".$var.".";
+        }
     ?>
 
 
