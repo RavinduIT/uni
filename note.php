@@ -95,18 +95,19 @@
         echo cube(5);
         
 
-        //GET and POST 
-        <form method="get">
-            <input type="email" name="email" value="Email">
-            <input type="password" name="password" value="PW">
-        </form>
-
-        if(isset($_GET['email'])){
-            $var = $_GET['email'];
-            echo "Your email is ".$var.".";
-        }
-        // but when we use POST method, the data will not be shown in the URL
-
+                //GET and POST 
+        ?>
+                <form method="get">
+                    <input type="email" name="email" value="Email">
+                    <input type="password" name="password" value="PW">
+                </form>
+        <?php
+             if(isset($_GET['email'])){
+                $var = $_GET['email'];
+                 echo "Your email is ".$var.".";
+               }
+             // but when we use POST method, the data will not be shown in the URL
+            // and the data will be sent to the server in a hidden way
 
         // Session( browser eka close krnkan data save krnw)
         session_start();
@@ -119,7 +120,7 @@
         echo $_COOKIE['name'];
         //time() + 86400 = 1 day tynw
 
-        
+
 
     ?>
 
