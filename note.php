@@ -76,6 +76,50 @@
         myFunction("John");
 
         // Include
+        include 'functions.php';
+        echo squre(5);
+        echo cube(5);
+        echo add(5, 10);
+        echo sub(10, 5);
+
+        // Require(php file must be there)
+        require 'functions.php';
+        echo squre(5);
+        echo cube(5);
+        echo add(5, 10);
+        echo sub(10, 5);
+
+        // Include Once ( loop ekaka wge include krnw nm ekaparai plwn)
+        include_once 'functions.php';   
+        echo squre(5);
+        echo cube(5);
+        
+
+        //GET and POST 
+        <form method="get">
+            <input type="email" name="email" value="Email">
+            <input type="password" name="password" value="PW">
+        </form>
+
+        if(isset($_GET['email'])){
+            $var = $_GET['email'];
+            echo "Your email is ".$var.".";
+        }
+        // but when we use POST method, the data will not be shown in the URL
+
+
+        // Session( browser eka close krnkan data save krnw)
+        session_start();
+        $_SESSION['name'] = "Ravindu";
+        echo $_SESSION['name'];
+
+        // Cookie( browser eka close karat data save krnw)
+        $name = "Ravindu";
+        setcookie('name', $name, time() + 86400);
+        echo $_COOKIE['name'];
+        //time() + 86400 = 1 day tynw
+
+        
 
     ?>
 
