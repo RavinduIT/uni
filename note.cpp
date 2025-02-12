@@ -77,8 +77,47 @@ int main() {
     }
     // read more abt vector here: https://www.geeksforgeeks.org/vector-in-cpp-stl/
 
-    
+    // Functions
+    int sum(int a, int b) {
+        return a + b;
+    }
+    cout << sum(5, 10) << endl;
 
+    // structs  
+    struct Person {
+        string name;
+        int age;
+        double salary;
+    };
+    Person p1;
+    p1.name = "Ravindu";
+    p1.age = 20;
+    p1.salary = 100000.00;
+    cout << p1.name << " " << p1.age << " " << p1.salary << endl;
+
+    // Pointers
+    int myAge = 20;
+    int* myPointer = &myAge;
+    cout << myAge << endl;
+    cout << myPointer << endl;
+    cout << *myPointer << endl;
+
+    // structures with functions
+    struct Person1 {
+        string name;
+        int age;
+        double salary;
+        void print() {
+            cout << name << " " << age << " " << salary << endl;
+        }
+    };
+    Person1 p2;
+    p2.name = "Ravindu";
+    p2.age = 20;
+    p2.salary = 100000.00;
+    p2.print();
+
+    
 
     return 0;
 }
