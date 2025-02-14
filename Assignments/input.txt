@@ -1,0 +1,10 @@
+Cat
+Dog
+Rat
+Bat
+Bag
+Nut
+Mug
+Cup
+Kid
+Dig

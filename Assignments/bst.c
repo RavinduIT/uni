@@ -1,0 +1,116 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+// Node structure
+struct Node {
+    char data;
+    struct Node* left;
+    struct Node* right;
+};
+
+// Function to insert a node into the BST
+struct Node* insert(struct Node* root, char data) {
+    if (root == NULL) {
+        struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+        newNode->data = data;
+        newNode->left = newNode->right = NULL;
+        return newNode;
+    }
+    if (data < root->data) {
+        root->left = insert(root->left, data);
+    } else {
+        root->right = insert(root->right, data);
+    }
+    return root;
+}
+
+// Function to find the height of the tree
+int findHeight(struct Node* root) {
+    if (root == NULL) {
+        return -1;
+    } else {
+        int leftHeight = findHeight(root->left);
+        int rightHeight = findHeight(root->right);
+        if (leftHeight > rightHeight) {
+            return leftHeight + 1;
+        } else {
+            return rightHeight + 1;
+        }
+    }
+}
+
+// Function to find the size of the tree
+int findSize(struct Node* root) {
+    if (root == NULL) {
+        return 0;
+    } else {
+        return findSize(root->left) + findSize(root->right) + 1;
+    }
+}
+
+// Function to find the minimum value node
+struct Node* findMin(struct Node* root) {
+    while (root && root->left != NULL) {
+        root = root->left;
+    }
+    return root;
+}
+
+// Function to find the maximum value node
+struct Node* findMax(struct Node* root) {
+    while (root && root->right != NULL) {
+        root = root->right;
+    }
+    return root;
+}
+
+// Function to create a mirror image of the tree
+void mirrorImage(struct Node* root) {
+    if (root == NULL) return;
+    struct Node* temp;
+    mirrorImage(root->left);
+    mirrorImage(root->right);
+    temp = root->left;
+    root->left = root->right;
+    root->right = temp;
+}
+
+// Function to print the mirrored tree in a readable format
+void printMirrorTree(struct Node* root, int space) {
+    if (root == NULL) return;
+    space += 5; // Increase distance between levels
+    printMirrorTree(root->right, space);
+    printf("\n");
+    for (int i = 5; i < space; i++) printf(" ");
+    printf("%c\n", root->data);
+    printMirrorTree(root->left, space);
+}
+
+// Main function
+int main() {
+    struct Node* root = NULL;
+    FILE* file = fopen("input.txt", "r");
+    char word[100];
+
+    // Read words from file and insert into BST
+    while (fscanf(file, "%s", word) != EOF) {
+        for (int i = 0; word[i] != '\0'; i++) {
+            root = insert(root, word[i]);
+        }
+    }
+    fclose(file);
+
+    // Print the required outputs
+    printf("Height of tree: %d\n", findHeight(root));
+    printf("Size of tree: %d\n", findSize(root));
+    printf("Minimum value: %c\n", findMin(root)->data);
+    printf("Maximum value: %c\n", findMax(root)->data);
+    
+    // Print the mirror image of the tree
+    printf("Mirror Image of the tree:\n");
+    mirrorImage(root);
+    printMirrorTree(root, 0); // Print mirrored tree in a readable format
+
+    return 0;
+}
