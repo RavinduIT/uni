@@ -1,10 +1,15 @@
-Cat
-Dog
-Rat
-Bat
-Bag
-Nut
-Mug
-Cup
-Kid
-Dig
+Name: Ravindu Lakshan Weerasinghe
+Index Number: 23002204
+Email Address: ravinduarduino1000@gmail.com
+
+Testing Environment:
+The code was tested on Linux (Ubuntu) using GCC for compilation.
+
+How to Execute the Program:
+gcc bst.c
+Run the program: 
+./a.out
+
+Special Notes:
+The program reads a list of words from a file (input.txt), builds a Binary Search Tree (BST), and supports functionalities such as finding the height, size, minimum, maximum, and creating a mirror image of the tree.
+The tree is displayed visually in a structured format, which can be helpful to understand the tree's structure.

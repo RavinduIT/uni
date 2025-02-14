@@ -1,123 +1,119 @@
-#include <iostream>
-#include <string> // For string class
-#include <cmath>  // For math functions
-#include <vector> // For vector (dynamic array)
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-using namespace std;
+#define ALPHABET_SIZE 26 // Assuming only lowercase letters a-z
 
+// Node structure
+struct Node {
+    char data;
+    struct Node* left;
+    struct Node* right;
+};
+
+// Function to insert a node into the BST (no duplicates)
+struct Node* insert(struct Node* root, char data) {
+    if (root == NULL) {
+        struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+        newNode->data = data;
+        newNode->left = newNode->right = NULL;
+        return newNode;
+    }
+    if (data < root->data) {
+        root->left = insert(root->left, data);
+    } else if (data > root->data) { // Prevent duplicates
+        root->right = insert(root->right, data);
+    }
+    return root;
+}
+
+// Function to find the height of the tree
+int findHeight(struct Node* root) {
+    if (root == NULL) {
+        return -1;
+    } else {
+        int leftHeight = findHeight(root->left);
+        int rightHeight = findHeight(root->right);
+        return (leftHeight > rightHeight ? leftHeight : rightHeight) + 1;
+    }
+}
+
+// Function to find the size of the tree
+int findSize(struct Node* root) {
+    if (root == NULL) {
+        return 0;
+    } else {
+        return findSize(root->left) + findSize(root->right) + 1;
+    }
+}
+
+// Function to find the minimum value node
+struct Node* findMin(struct Node* root) {
+    while (root && root->left != NULL) {
+        root = root->left;
+    }
+    return root;
+}
+
+// Function to find the maximum value node
+struct Node* findMax(struct Node* root) {
+    while (root && root->right != NULL) {
+        root = root->right;
+    }
+    return root;
+}
+
+// Function to create a mirror image of the tree
+void mirrorImage(struct Node* root) {
+    if (root == NULL) return;
+    struct Node* temp;
+    mirrorImage(root->left);
+    mirrorImage(root->right);
+    temp = root->left;
+    root->left = root->right;
+    root->right = temp;
+}
+
+// Function to print the mirrored tree in a readable format
+void printMirrorTree(struct Node* root, int space) {
+    if (root == NULL) return;
+    space += 5; // Increase distance between levels
+    printMirrorTree(root->right, space);
+    printf("\n");
+    for (int i = 5; i < space; i++) printf(" ");
+    printf("%c\n", root->data);
+    printMirrorTree(root->left, space);
+}
+
+// Main function
 int main() {
-    int x;
+    struct Node* root = NULL;
+    FILE* file = fopen("input.txt", "r");
+    char word[100];
+    int charPresent[ALPHABET_SIZE] = {0}; // Array to track unique characters
 
-    cout << "First line\n";
-    cout << 3 + 3 << endl;
-    cout << "Hutta" << endl;
-    cout << "I'm \"Ravindu\"" << endl;
-    cout << "I'm \'Ravindu\'" << endl;
-
-    // Comment examples
-    // Single-line comment
-    /* Multi-line comment */
-
-    // Input integer
-    cout << "Enter a number: ";
-    cin >> x;
-    cout << "You entered: " << x << endl;
-
-    // String usage
-    string name = "Ravindu";
-    cout << name << endl;
-
-    // String concatenation
-    string firstName = "Ravindu";
-    string lastName = "Lakshan";
-    string fullName = firstName + " " + lastName;
-    cout << fullName << endl;
-
-    // String length
-    cout << fullName.length() << endl;
-
-    // Accessing string elements
-    cout << fullName[0] << endl;
-
-    // Changing string elements
-    fullName[0] = 'K';
-    cout << fullName << endl;
-
-    // User input string
-    string name1;
-    cout << "Enter your name: ";
-    cin >> name1;          // Only gets the first word
-    cin.ignore();          // Clear the newline character
-    getline(cin, name1);   // Get the whole line
-    cout << "Your name is: " << name1 << endl;
-
-    // Math functions
-    cout << max(5, 10) << endl;   // Max of two numbers
-    cout << min(5, 10) << endl;   // Min of two numbers
-    cout << sqrt(64) << endl;    // Square root
-    cout << round(2.6) << endl;  // Round off
-    cout << log(2) << endl;      // Logarithm
-
-    // Ternary operator
-    int time = 20;
-    string result = (time < 18) ? "Good day." : "Good evening.";
-    cout << result << endl;
-
-    // For-each loop
-    int myNumbers[5] = {10, 20, 30, 40, 50};
-    for (int i : myNumbers) {
-        cout << i << "\n";
-    }
-
-    // Vector (dynamic array)
-    vector<int> myVector = {10, 20, 30, 40, 50};
-    myVector.push_back(60);
-    for (int i : myVector) {
-        cout << i << "\n";
-    }
-    // read more abt vector here: https://www.geeksforgeeks.org/vector-in-cpp-stl/
-
-    // Functions
-    int sum(int a, int b) {
-        return a + b;
-    }
-    cout << sum(5, 10) << endl;
-
-    // structs  
-    struct Person {
-        string name;
-        int age;
-        double salary;
-    };
-    Person p1;
-    p1.name = "Ravindu";
-    p1.age = 20;
-    p1.salary = 100000.00;
-    cout << p1.name << " " << p1.age << " " << p1.salary << endl;
-
-    // Pointers
-    int myAge = 20;
-    int* myPointer = &myAge;
-    cout << myAge << endl;
-    cout << myPointer << endl;
-    cout << *myPointer << endl;
-
-    // structures with functions
-    struct Person1 {
-        string name;
-        int age;
-        double salary;
-        void print() {
-            cout << name << " " << age << " " << salary << endl;
+    // Read words from file and insert into BST
+    while (fscanf(file, "%s", word) != EOF) {
+        for (int i = 0; word[i] != '\0'; i++) {
+            int index = word[i] - 'a'; // Convert char to index (0-25)
+            if (!charPresent[index]) { // Check if character is already inserted
+                root = insert(root, word[i]);
+                charPresent[index] = 1; // Mark as present
+            }
         }
-    };
-    Person1 p2;
-    p2.name = "Ravindu";
-    p2.age = 20;
-    p2.salary = 100000.00;
-    p2.print();
+    }
+    fclose(file);
 
+    // Print the required outputs
+    printf("Height of tree: %d\n", findHeight(root));
+    printf("Size of tree: %d\n", findSize(root));
+    printf("Minimum value: %c\n", findMin(root)->data);
+    printf("Maximum value: %c\n", findMax(root)->data);
     
+    // Print the mirror image of the tree
+    printf("Mirror Image of the tree:\n");
+    mirrorImage(root);
+    printMirrorTree(root, 0); // Print mirrored tree in a readable format
 
     return 0;
 }
