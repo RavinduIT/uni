@@ -1,0 +1,27 @@
+to create table 
+
+
+
+
+// insert data
+
+INSERT INTO info (name, weight_kg, age) VALUES ('Ravindu', 50, 21);
+
+
+// update data
+
+UPDATE info SET name='kamal' WHERE id='2'
+UPDATE info SET age=28 WHERE id='2'
+
+
+// Delete data
+
+DELETE FROM info WHERE id='2'
+
+
+// Sort data
+
+SELECT * FROM info ORDER BY id ASC  // acending 
+SELECT * FROM info ORDER BY id DESC  // decending
+
+
