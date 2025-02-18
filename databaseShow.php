@@ -13,7 +13,7 @@ include 'dbc.php';
     
     <?php
 
-
+        $insert = "INSERT INTO ravindu (name) VALUES ('Ravindu')";
 
         $sql = "SELECT * FROM ravindu";
         $result = mysqli_query($connect, $sql);
