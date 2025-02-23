@@ -15,11 +15,16 @@ class date {
             year = y;
         }
         /*
-        date(int d, int m, int y) {
+        date(int d, int m, int y) {             // constructor
             day = d;
             month = m;
             year = y;
         }
+
+        ~date() {                               // destructor
+            cout << "Object is being deleted" << endl;
+        }
+
         */
         void printDate() {
             cout << day << "/" << month << "/" << year << endl;
