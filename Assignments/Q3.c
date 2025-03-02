@@ -39,7 +39,6 @@ AVLNode* rightRotate(AVLNode *y) {
     x->right = y;
     y->left = T2;
 
-    // Update heights
     y->height = 1 + ((height(y->left) > height(y->right)) ? height(y->left) : height(y->right));
     x->height = 1 + ((height(x->left) > height(x->right)) ? height(x->left) : height(x->right));
 
@@ -55,7 +54,6 @@ AVLNode* leftRotate(AVLNode *x) {
     y->left = x;
     x->right = T2;
 
-    // Update heights
     x->height = 1 + ((height(x->left) > height(x->right)) ? height(x->left) : height(x->right));
     y->height = 1 + ((height(y->left) > height(y->right)) ? height(y->left) : height(y->right));
 
