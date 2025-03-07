@@ -47,3 +47,30 @@ str = parseInt(str);  // type cast to integer
 str = parseFloat(str);  // type cast to float
 
 
+console.log("Hello " + "World");  // concatenation);
+console.log('Hello ${str}');  // string interpolation
+
+//array methods
+let arr2 = [1, 2, 3, 4, 5];
+console.log(arr.length);  // length of array
+console.log(arr.concat(arr2));  // concatenation of arrays
+console.log(arr.join(" "));  // join the array elements with a separator
+console.log(arr.pop());  // remove the last element of array
+console.log(arr.push(6));  // add an element to the end of array
+console.log(arr.shift());  // remove the first element of array
+console.log(arr.unshift(0));  // add an element to the beginning of array
+console.log(arr.slice(1, 3));  // slice the array from index 1 to 3
+console.log(arr.splice(1, 2));  // remove 2 elements from index 1
+console.log(arr.reverse());  // reverse the array
+console.log(arr.sort());  // sort the array
+
+
+//object methods
+console.log(Object.keys(object));  // get the keys of object
+console.log(Object.values(object));  // get the values of object
+console.log(Object.entries(object));  // get the key-value pairs of object
+console.log(object.hasOwnProperty('key1'));  // check if the object has the key
+console.log(object.hasOwnProperty('key4'));  // check if the object has the key
+console.log(object.hasOwnProperty('value1'));  // check if the object has the value
+console.log(object.hasOwnProperty('value4'));  // check if the object has the value
+
