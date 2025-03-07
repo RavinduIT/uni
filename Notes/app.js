@@ -45,3 +45,5 @@ let str = "10";
 str = Number(str);  // type cast to number
 str = parseInt(str);  // type cast to integer
 str = parseFloat(str);  // type cast to float
+
+
