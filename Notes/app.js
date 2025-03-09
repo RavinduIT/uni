@@ -20,7 +20,7 @@ let invar2 = confirm("Are you sure?");   // confirm is a function that takes inp
 
 */
 
-let object = {  
+let object1 = {  
     key1: "value1",
     key2: "value2",
     key3: "value"
@@ -32,8 +32,8 @@ let object2 = {
     key3: "value3",
 };
 
-console.log(object, object2);       // print the object
-console.table({object, object2});    // print the object in table format
+console.log(object1, object2);       // print the object
+console.table({object1, object2});    // print the object in table format
 
 let arr = [1, 2, 3, 4, 5];  // array is a collection of values
 
@@ -66,6 +66,18 @@ console.log(arr.sort());  // sort the array
 
 
 //object methods
+let object = {
+    name: "John",
+    age: 33,
+    Languages: ["English", "Spanish"],
+    address: {
+        street: "123 Main St",
+        city: "New York"
+    }
+};
+console.log(object.name);  // get the value of key
+object.name = "Jane";  // set the value of key
+
 console.log(Object.keys(object));  // get the keys of object
 console.log(Object.values(object));  // get the values of object
 console.log(Object.entries(object));  // get the key-value pairs of object
