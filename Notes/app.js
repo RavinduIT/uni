@@ -86,3 +86,35 @@ console.log(object.hasOwnProperty('key4'));  // check if the object has the key
 console.log(object.hasOwnProperty('value1'));  // check if the object has the value
 console.log(object.hasOwnProperty('value4'));  // check if the object has the value
 
+// foreach loop
+arr.forEach(element) => {
+    console.log(element);
+};
+
+//map
+let arr3 = arr.map(element => {             // map function can return elements of array
+    return element * 2;
+});
+
+for(element of arr) {
+    console.log(element);
+}
+
+
+let result = arr.filter(element => {        // filter function can return elements of array based on condition
+    return element > 2;
+});
+
+
+// get all odd numbers in array and add 5 to em
+
+let result2 = arr.filter(element => {
+    return element % 2 !== 0;
+}).map(element =>{
+    return element + 5;
+});
+
+console.log(result2);
+
+
+// reduce
