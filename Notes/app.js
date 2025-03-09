@@ -118,3 +118,19 @@ console.log(result2);
 
 
 // reduce
+let sum = arr.reduce((acc, element) => {    // reduce function can return a single value
+    return acc + element;
+}, 0);
+
+
+// find
+let found = arr.find(element => {           // find function can return the first element that satisfies the condition
+    return element > 2;
+});
+
+// some
+let some = arr.some(element => {            // some function can return true if any of the elements satisfy the condition
+    return element > 2;
+});
+
+
