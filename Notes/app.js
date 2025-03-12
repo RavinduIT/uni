@@ -134,3 +134,15 @@ let some = arr.some(element => {            // some function can return true if 
 });
 
 
+// find min in an array
+const numbers = [10, 5, 8, 3, 9];  // Array of numbers
+const min = Math.min(...numbers);   // Expands array and finds the min value
+console.log(min); // Output: 3
+
+
+// thiss is better forr large arrays
+const numbers = [10, 5, 8, 3, 9];
+const min = numbers.reduce((a, b) => Math.min(a, b));
+console.log(min); // Output: 3
+
+
