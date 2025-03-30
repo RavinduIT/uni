@@ -145,4 +145,28 @@ const numbers = [10, 5, 8, 3, 9];
 const min = numbers.reduce((a, b) => Math.min(a, b));
 console.log(min); // Output: 3
 
+// find max in an array
+const numbers = [10, 5, 8, 3, 9];  // Array of numbers
+const max = Math.max(...numbers);   // Expands array and finds the max value
+console.log(max); // Output: 10
+
+// thiss is better forr large arrays
+const numbers = [10, 5, 8, 3, 9];
+const max = numbers.reduce((a, b) => Math.max(a, b));
+console.log(max); // Output: 10
+
+//math functions
+let num1 = 10;
+let num2 = 20;
+console.log(Math.max(num1, num2));  // max of two numbers
+console.log(Math.min(num1, num2));  // min of two numbers
+console.log(Math.abs(num1));  // absolute value of a number
+console.log(Math.sqrt(num1));  // square root of a number
+console.log(Math.pow(num1, 2));  // power of a number
+console.log(Math.round(num1));  // round a number
+console.log(Math.floor(num1));  // floor of a number
+console.log(Math.ceil(num1));  // ceil of a number
+console.log(Math.random());  // random number between 0 and 1
+console.log(Math.random() * 10);  // random number between 0 and 10
+console.log((Math.random() * (maxval - minval)) + minval);  // random number between 1 and 10
 
